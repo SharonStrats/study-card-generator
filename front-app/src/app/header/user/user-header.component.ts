@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
+    selector: 'app-header-user',
+    templateUrl: './user-header.component.html',
     styles: [`
         .navbar {
             border-radius: 0;
@@ -10,7 +10,7 @@ import { Component, OnInit } from "@angular/core";
     `]
 })
 
-export class HeaderComponent implements OnInit {
+export class UserHeaderComponent implements OnInit {
     constructor() {
 
     }

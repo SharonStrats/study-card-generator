@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from "@angular/router";
 
 import { AppComponent } from './app.component';
-import { SignupComponent, SigninComponent } from './_auth';
-import { HeaderComponent } from './_header/header.component';
+import { SignupComponent, SigninComponent } from './auth';
+import { GuestHeaderComponent } from './header/guest/guest-header.component';
 import { LandingComponent } from './landing/landing.component';
+import { CardsComponent, CardListComponent, CardEditComponent } from "./cards";
 
 const appRoutes: Routes = [
   { path: '',
@@ -18,10 +19,13 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    GuestHeaderComponent,
     SignupComponent,
     SigninComponent,
-    LandingComponent
+    LandingComponent,
+    CardsComponent,
+    CardListComponent,
+    CardEditComponent
   ],
   imports: [
     BrowserModule,

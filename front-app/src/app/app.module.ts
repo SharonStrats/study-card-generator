@@ -13,7 +13,9 @@ const appRoutes: Routes = [
   { path: '',
     component: LandingComponent },
   { path: 'signup',
-    component: SignupComponent }
+    component: SignupComponent },
+  { path: 'card/:id/edit',
+    component: CardEditComponent }
 ];
 
 @NgModule({

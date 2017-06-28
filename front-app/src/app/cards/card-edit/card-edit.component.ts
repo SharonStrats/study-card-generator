@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { Card } from "../card.model";
 
 @Component({
@@ -7,5 +8,7 @@ import { Card } from "../card.model";
 })
 
 export class CardEditComponent {
-    
+    constructor (private route: ActivatedRoute) {
+        
+    }
 }

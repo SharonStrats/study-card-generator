@@ -1,4 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { Response } from "@angular/http";
+import { CardsService } from "../services";
 import { Card } from "./card.model";
 
 @Component({
@@ -7,44 +9,19 @@ import { Card } from "./card.model";
     styleUrls: ['./cards.component.css']
 })
 
-export class CardsComponent {
+export class CardsComponent implements OnInit{
     tags = ['Javascript', 'Database', 'Python', 'Angular', 'Node', 'NPM']
-    cards: Card[] = [
-        {
-            id: 1,
-            question: 'question #1',
-            answer: 'dolorset',
-            tags: ['lorem', 'ipsum']
-        },
-        {
-            id: 2,
-            question: 'question #2',
-            answer: 'dolorset',
-            tags: ['lorem', 'ipsum']
-        },
-        {
-            id: 3,
-            question: 'question #3',
-            answer: 'dolorset',
-            tags: ['lorem', 'ipsum']
-        },
-        {
-            id: 4,
-            question: 'question #4',
-            answer: 'dolorset',
-            tags: ['lorem', 'ipsum']
-        },
-        {
-            id: 5,
-            question: 'question #5',
-            answer: 'dolorset',
-            tags: ['lorem', 'ipsum']
-        },
-        {
-            id: 6,
-            question: 'question #6',
-            answer: 'dolorset',
-            tags: ['lorem', 'ipsum']
-        },
-    ]
+    cards: Card[];
+
+    constructor (private cardsService: CardsService){}
+
+    ngOnInit() {
+        this.cardsService.getCards().subscribe(
+            (data: any) => {
+                this.cards = data;
+                console.log(this.cards);
+            },
+            (err) => console.log(err)
+        )
+    }
 }

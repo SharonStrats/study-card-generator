@@ -1,6 +1,4 @@
 export class Card {
-    id: Number;
-    question: String;
-    answer: String;
-    tags: String[];
+    constructor(private question: String, private answer: String, tags: String[]) {
+    }
 }

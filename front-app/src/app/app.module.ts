@@ -13,16 +13,11 @@ import { CardsComponent, CardListComponent, CardEditComponent, CardNewComponent 
 import { CardsService } from "./services";
 
 const appRoutes: Routes = [
-  { path: '',
-    component: LandingComponent },
-  { path: 'signup',
-    component: SignupComponent },
-  { path: 'card',
-    component: CardsComponent },
-  { path: 'card/new',
-    component: CardNewComponent },
-  { path: 'card/:id/edit',
-    component: CardEditComponent }
+  { path: '', component: LandingComponent, pathMatch:'full' },
+  { path: 'signup', component: SignupComponent },
+  { path: 'card', component: CardsComponent },
+  { path: 'card/new', component: CardNewComponent },
+  { path: 'card/:id/edit', component: CardEditComponent }
 ];
 
 @NgModule({

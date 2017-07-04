@@ -18,7 +18,7 @@ export class UserService {
 
     userSignup(email, password){
         let user = new User(email, password);
-        return this.http.post('/api/signup/do', user, this.headers);
+        return this.http.post('/api/user/signup', user, this.headers);
     }
 
     userLogin(email, password){

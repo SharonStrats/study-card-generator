@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 
 import { CardsService } from "../../services";
-import { Card } from "../../cards";
+import { Card } from "../../models";
 
 @Component({
   selector: 'app-card-new',

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from "@angular/http";
-import { Card } from "../cards";
+import { Card } from "../models";
 
 import 'rxjs/Rx';
 

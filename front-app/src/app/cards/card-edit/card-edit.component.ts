@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { Card } from "../card.model";
+import { Card } from "../../models";
 
 @Component({
     selector: 'app-card-edit',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Response } from "@angular/http";
 import { CardsService } from "../services";
-import { Card } from "./card.model";
+import { Card } from "../models";
 
 @Component({
     selector: 'app-cards',

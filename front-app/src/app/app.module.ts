@@ -10,7 +10,7 @@ import { GuestHeaderComponent } from './header/guest/guest-header.component';
 import { LandingComponent } from './landing/landing.component';
 import { CardsComponent, CardListComponent, CardEditComponent, CardNewComponent } from "./cards";
 
-import { CardsService } from "./services";
+import { CardsService, UserService } from "./services";
 
 const appRoutes: Routes = [
   { path: '', component: LandingComponent, pathMatch:'full' },
@@ -38,7 +38,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ CardsService ],
+  providers: [ CardsService, UserService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,22 +1,28 @@
 import { Injectable } from "@angular/core";
 import { Http } from "@angular/http";
+import { User } from "../models/users.model";
 import 'rxjs/Rx';
 
 @Injectable()
 
 export class UserService {
     private loggedIn = false;
+    private headers = new Headers();
 
     constructor(private http: Http){
         // initial result may be not Boolean Type
         this.loggedIn = !!localStorage.getItem('auth_token');
+        // initialize header to use JSON type
+        this.headers.append('Content-Type','application/json');
+    }
+
+    userSignup(email, password){
+        let user = new User(email, password);
+        return this.http.post('/api/signup/do', user, this.headers);
     }
 
     userLogin(email, password){
-        let headers = new Headers();
-        headers.append('Content-Type','application/json');
-
-        return this.http.post('/login', JSON.stringify({email, password}), headers)
+        return this.http.post('/login', JSON.stringify({email, password}), this.headers)
             .map(res => res.json())
             .map(res => {
                 if (res.success){

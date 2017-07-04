@@ -1,19 +1,25 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var config = require('../config');
-var db = mongoose.connection;
 
 var CardGen = require('../models/cardGenModel');
+var User = require('../models/userModel');
 var bodyParser = require('body-parser');
 var router = express.Router();
 
 router.get('/', (req, res) => {
-	mongoose.connect(config.getDbConnectionString());
-	db.on('error', console.error.bind(console, 'connection error:'));
-	db.once('open', () => {
-    	console.log('we are in!');
+	User.find((err, users) => {
+		err ? res.send(err) : res.json(users); 
 	})
-	res.send('card api works!');
+})
+
+router.post('/signup/do', (req, res) => {
+	var user = new User();
+	user.email = req.body.email;
+	user.password = req.body.password;
+	
+	user.save((err) => console.log(err) )
+
 })
 
 module.exports = router;

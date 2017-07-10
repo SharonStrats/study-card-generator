@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Http } from "@angular/http";
-import { User } from "../models";
+import { User, Login } from "../models";
 import 'rxjs/Rx';
 
 @Injectable()
@@ -16,21 +16,22 @@ export class UserService {
         this.headers.append('Content-Type','application/json');
     }
 
-    userSignup(email, password){
-        let user = new User(email, password);
-        return this.http.post('/api/user/signup', user, this.headers);
+    userRegister(name, email, password){
+        let user = new User(name, email, password);
+        return this.http.post('/api/user/register', user, this.headers);
     }
 
     userLogin(email, password){
-        return this.http.post('/login', JSON.stringify({email, password}), this.headers)
-            .map(res => res.json())
-            .map(res => {
-                if (res.success){
-                    localStorage.setItem('auth_token', res.auth_token);
-                    this.loggedIn = true;
-                }
-                return res.success;
-            })
+        let login = new Login(email, password);
+        return this.http.post('/api/user/login', login, this.headers);
+            // .map(res => res.json())
+            // .map(res => {
+            //     if (res.success){
+            //         localStorage.setItem('auth_token', res.auth_token);
+            //         this.loggedIn = true;
+            //     }
+            //     return res.success;
+            // })
 
     }
 

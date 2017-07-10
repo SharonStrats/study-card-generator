@@ -5,7 +5,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { HttpModule } from "@angular/http";
 
 import { AppComponent } from './app.component';
-import { SignupComponent, SigninComponent } from './auth';
+import { LoginComponent, RegisterComponent } from './auth';
 import { GuestHeaderComponent } from './header/guest/guest-header.component';
 import { LandingComponent } from './landing/landing.component';
 import { CardsComponent, CardListComponent, CardEditComponent, CardNewComponent } from "./cards";
@@ -14,7 +14,8 @@ import { CardsService, UserService } from "./services";
 
 const appRoutes: Routes = [
   { path: '', component: LandingComponent, pathMatch:'full' },
-  { path: 'signup', component: SignupComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'card', component: CardsComponent },
   { path: 'card/new', component: CardNewComponent },
   { path: 'card/:id/edit', component: CardEditComponent }
@@ -24,8 +25,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     GuestHeaderComponent,
-    SignupComponent,
-    SigninComponent,
+    LoginComponent,
+    RegisterComponent,
     LandingComponent,
     CardsComponent,
     CardListComponent,

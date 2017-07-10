@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-6 col-sm-offset-1 col-md-offset-3">
+        <h2>Register</h2>
+        <p>Already a member? Please <a routerLink="/login">login</a> instead.</p>
+        <div *ngIf="errorStat" class="alert alert-danger">{{ errorMsg }}</div>
+        <form (ngSubmit)="onRegister(form)" #form="ngForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input class="form-control" type="email" id="name" name="name" required ngModel>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input class="form-control" type="email" id="email" name="email" required ngModel>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control" type="password" id="password" name="password" required ngModel>
+            </div>
+            <div class="form-group">
+                <label for="confirm">Confirm Password</label>
+                <input class="form-control" type="password" id="confirm" name="confirm" ngModel>
+            </div>
+            <button class="btn btn-success pull-right" type="submit">Sign Up!</button>
+        </form>
+    </div>
+</div>

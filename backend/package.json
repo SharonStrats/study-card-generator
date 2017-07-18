@@ -2,8 +2,9 @@
   "name": "study-card-generator",
   "version": "1.0.0",
   "description": "Create cards for studying",
-  "main": "index.js",
+  "main": "backend/app.js",
   "scripts": {
+    "start": "node backend/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "install-all": "npm install && npm install ./front-app"
   },

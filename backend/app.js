@@ -9,9 +9,9 @@ var express     = require('express'),
 // =====================================================================
 // LOCAL MODULES IMPORTS
 // =====================================================================
-var config      = require('./config'),
+var config          = require('./config'),
     setupController = require('./controllers/setupController'),
-    user         = require('./controllers/userAPI');
+    user            = require('./controllers/userAPI');
 
 // =====================================================================
 // BASE SETUP
@@ -31,7 +31,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 // Assets and base route Setup
 app.use('/assets', express.static(__dirname + '/public'));
 app.use('/api/user', user)
-app.use('/', express.static(__dirname + '/dist'));
+app.use('/', express.static(__dirname + '/../dist'));
 
 // Directs all other routes to Angular/frontend route
 app.get('*', (req, res) => {

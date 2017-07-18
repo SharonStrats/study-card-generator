@@ -1,0 +1,29 @@
+{
+  "name": "study-card",
+  "version": "1.0.0",
+  "description": "Create Flash Cards",
+  "main": "backend/app.js",
+  "scripts": {
+    "serve": "cd backend && node app.js",
+    "build": "cd frontend && ng build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SharonStrats/study-card-generator.git"
+  },
+  "keywords": [
+    "flash-card",
+    "angular",
+    "node",
+    "mongodb",
+    "MEAN",
+    "webapp"
+  ],
+  "author": "Johanes, Ankit, and Sharon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SharonStrats/study-card-generator/issues"
+  },
+  "homepage": "https://github.com/SharonStrats/study-card-generator#readme"
+}

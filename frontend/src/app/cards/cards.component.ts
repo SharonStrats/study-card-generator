@@ -19,7 +19,6 @@ export class CardsComponent implements OnInit{
         this.cardsService.getCards().subscribe(
             (data: any) => {
                 this.cards = data;
-                console.log(this.cards);
             },
             (err) => console.log(err)
         )

@@ -6,6 +6,7 @@
   "scripts": {
     "serve": "cd backend && node app.js",
     "build": "cd frontend && ng build",
+    "install" : "cd frontend && npm install && cd../backend && npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

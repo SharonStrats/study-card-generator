@@ -1,0 +1,13 @@
+.panel-heading {
+    padding: 30px 10px;
+}
+
+.panel-text {
+    text-align: center;
+    margin: 0;
+    font-size: 3rem;
+}
+
+.pointer {
+    cursor: pointer;
+}

@@ -1,11 +1,11 @@
-var express = require('express');
+var express  = require('express');
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
-var User = require('../models/userModel');
-var api = express.Router();
+var bcrypt   = require('bcrypt');
+var User 	 = require('../models/userModel');
+var api 	 = express.Router();
 
-api.get('/', (req, res) => {
-	User.find((err, users) => {
+api.get('/', function (req, res) {
+	User.find(function (err, users) {
 		err ? res.send(err) : res.json(users); 
 	})
 })
@@ -16,7 +16,8 @@ api.post('/register', function (req, res) {
 	user.email 	  = req.body.email;
 	user.password = req.body.password;
 	user.save(function (err) {
-		err ? res.send(err) : res.json({ success: true, message: 'User Created!'})
+		var token = user.generateJwt();
+		err ? res.send(err) : res.json({ success: true, message: 'User Created!', token: token})
 	})
 })
 

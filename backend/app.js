@@ -16,30 +16,35 @@ var config      = require('./config'),
 // =====================================================================
 // BASE SETUP
 // =====================================================================
-var app     = express(),
-    db      = mongoose.connection,
-    port    = process.env.PORT || 4000;
+var app      = express(),
+    db       = mongoose.connection,
+    dist_dir = __dirname + '/../dist',
+    port     = process.env.PORT || 4000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Mongoose Setup
+// =====================================================================
+// DATABASE SETUP
+// =====================================================================
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://127.0.0.1:27017/flash-card")
+mongoose.connect(config.getDbConnectionString())
 db.on('error', console.error.bind(console, 'connection error:'));
 
-// Assets and base route Setup
+// =====================================================================
+// ASSETS & ROUTES SETUP
+// =====================================================================
 app.use('/assets', express.static(__dirname + '/public'));
 app.use('/api/user', user)
-app.use('/', express.static(__dirname + '/dist'));
+app.use('/', express.static(dist_dir));
 
 // Directs all other routes to Angular/frontend route
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist/index.html'))
+app.get('*', function (req, res){
+    res.sendFile(path.join(dist_dir + '/index.html'))
 })
 
 // setupController(app);
 
-app.listen(port, () => {
-    console.log('server running on localhost:'+port)
+app.listen(port, function () {
+    console.log('server running on localhost:'+ port)
 });

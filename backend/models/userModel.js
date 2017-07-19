@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+var bcrypt   = require('bcrypt');
+var jwt      = require('jsonwebtoken');
 var SALT_WORK_FACTOR = 10;
 
 var Schema = mongoose.Schema;
@@ -40,7 +41,7 @@ userSchema.methods.verifyPassword = function(candidatePassword, cb) {
 
 userSchema.methods.generateJwt = function() {
     var expire = new Date();
-    expire.setDate(expire.getDate + 7);
+    expire.setDate(expire.getDate() + 7);
 
     return jwt.sign({
         _id  : this._id,

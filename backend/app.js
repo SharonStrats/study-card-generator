@@ -9,7 +9,7 @@ var express     = require('express'),
 // =====================================================================
 // LOCAL MODULES IMPORTS
 // =====================================================================
-var config          = require('./config'),
+var config          = require('./config/index'),
     setupController = require('./controllers/setupController'),
     user            = require('./controllers/userAPI');
 
@@ -25,7 +25,9 @@ app.use(bodyParser.json());
 
 // Mongoose Setup
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://127.0.0.1:27017/flash-card")
+console.log("This is goign to be my error");
+console.log(config.getDbConnectionString());
+mongoose.connect(config.getDbConnectionString());
 db.on('error', console.error.bind(console, 'connection error:'));
 
 // Assets and base route Setup

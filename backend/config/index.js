@@ -3,7 +3,7 @@ var configValues = require('./config');
 module.exports = {
 
 	getDbConnectionString: function() {
-		if (configValues.development = true) {
+		if (configValues.development == true) {
 			// this is for local development database
 			return "mongodb://127.0.0.1:27017/flash-card"
 		}

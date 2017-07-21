@@ -1,5 +1,5 @@
 export class User {
-    constructor(private name: String, private email: String, private password: String) {
+    constructor(private uname: String, private email: String, private password: String) {
     }
 }
 

@@ -1,5 +1,6 @@
 {
 	"uname": "sharon",
 	"pwd": "Dolphinteam6",
-	"development": true
+	"development": true,
+	"secret": "TEST_SECRET"
 }

@@ -21,14 +21,15 @@ export class RegisterComponent implements OnInit{
     }
 
     onRegister(form: NgForm) {
-        const name    = form.value.name;
+        console.log(form.value.uname);
+        const uname    = form.value.uname;
         const email    = form.value.email;
         const password = form.value.password;
         const confirm  = form.value.confirm;
         if ( password === confirm ){
             this.errorStat = false;
             this.errorMsg  = ""; 
-            this.userService.userRegister(name, email, password).subscribe(
+            this.userService.userRegister(uname, email, password).subscribe(
             (res) => console.log(res),
             (err) => console.log(err))
         }

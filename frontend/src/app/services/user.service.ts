@@ -16,8 +16,8 @@ export class UserService {
         this.headers.append('Content-Type','application/json');
     }
 
-    userRegister(name, email, password){
-        let user = new User(name, email, password);
+    userRegister(uname, email, password){
+        let user = new User(uname, email, password);
         return this.http.post('/api/user/register', user, this.headers);
     }
 

@@ -4,14 +4,16 @@
 var express     = require('express'),
     path        = require('path'),
     bodyParser  = require("body-parser"),
-    mongoose    = require('mongoose');
+    mongoose    = require('mongoose'),
+    passport    = require('passport');
 
 // =====================================================================
 // LOCAL MODULES IMPORTS
 // =====================================================================
-var config      = require('./config'),
+var config          = require('./config'),
     setupController = require('./controllers/setupController'),
-    user         = require('./controllers/userAPI');
+    user            = require('./controllers/user.controller'),
+    passportConfig  = require('./config/authentication');
 
 // =====================================================================
 // BASE SETUP
@@ -34,6 +36,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 // =====================================================================
 // ASSETS & ROUTES SETUP
 // =====================================================================
+app.use(passport.initialize());
 app.use('/assets', express.static(__dirname + '/public'));
 app.use('/api/user', user)
 app.use('/', express.static(dist_dir));

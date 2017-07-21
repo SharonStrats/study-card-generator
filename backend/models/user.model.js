@@ -2,11 +2,12 @@ var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt');
 var jwt      = require('jsonwebtoken');
 var SALT_WORK_FACTOR = 10;
+var SECRET = 'TEST_SECRET'; //TODO: move this secret key to environment
 
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
-    name: { 
+    uname: { 
         type: String,
         required: true
     },
@@ -48,7 +49,7 @@ userSchema.methods.generateJwt = function() {
         email: this.email,
         name : this.name,
         exp  : parseInt(expire.getTime() / 1000)
-    }, 'TEST_SECRET') //TODO: move this secret key to environment
+    }, SECRET) 
 }
 
 module.exports = mongoose.model('User', userSchema);

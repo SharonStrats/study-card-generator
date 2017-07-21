@@ -10,7 +10,7 @@ var passport = require('passport'),
 // LOCAL MODULES IMPORTS
 // =====================================================================
 
-var User = mongoose.model('User');
+var User 	 = require('../models/user.model');
 
 // =====================================================================
 

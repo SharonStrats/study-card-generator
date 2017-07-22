@@ -11,7 +11,8 @@ var express     = require('express'),
 // =====================================================================
 var config          = require('./config/index'),
     setupController = require('./controllers/setupController'),
-    user            = require('./controllers/userAPI');
+    user            = require('./controllers/userAPI'),
+    apiController = require('./controllers/apiController');
 
 // =====================================================================
 // BASE SETUP
@@ -25,9 +26,9 @@ app.use(bodyParser.json());
 
 // Mongoose Setup
 mongoose.Promise = global.Promise;
-console.log("This is goign to be my error");
-console.log(config.getDbConnectionString());
 mongoose.connect(config.getDbConnectionString());
+setupController(app);
+apiController(app);
 db.on('error', console.error.bind(console, 'connection error:'));
 
 // Assets and base route Setup

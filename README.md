@@ -1,5 +1,11 @@
 # Flash Card Generator
 
+### Details
+
+Unfinished project I started with some others in a group called Chingu where people get
+together and build projects together to learn to code.
+
+
 ## Usage
 1. Install all NPM module for both `backend` and `frontend` by runningn the following command:
 
